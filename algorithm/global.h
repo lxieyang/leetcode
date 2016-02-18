@@ -10,6 +10,7 @@
 #include <stack>
 #include <queue>
 #include <deque>
+#include <list>
 #include <cassert>
 #include <fstream>
 #include <cstdlib>
