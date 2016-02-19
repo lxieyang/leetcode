@@ -39,16 +39,37 @@ public:
 	}
 
 	void genPerms() {
+		if(currentPath.back() == end && currentDistance <= bestDistance) {
+			bestDistance = currentDistance;
+			bestPathSoFar.assign(currentPath.begin(), currentPath.end());
+			paths.push_back(currentPath);
+			return;
+		}
 
+		if(!promising()) {
+			return;
+		}
+
+		for(unsigned i = 0; i < dict.size(); i++) {
+			// check if valid, and put stuff in path
+
+			// recursive call
+			genPerms();
+
+			// get the back of path out
+		}
 	}
 
     vector<vector<string> > findLadders(string begin, string end, unordered_set<string> & dict) {
-    	bestDistance = 0;
+    	bestDistance = INT_MAX;
     	this->dict = dict;
     	this->begin = begin; this->end = end;
+    	currentPath.push_back(begin);
+    	bestPathSoFar.push_back(begin);
 
+    	genPerms();
 
-
+    	// erase all instances in paths that has a size greater than bestDistance
 
         return paths;
     }
