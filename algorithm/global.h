@@ -19,6 +19,7 @@
 #include <cstdio>
 #include <cmath>
 #include <climits>
+#include <unistd.h>
 
 using namespace std;
 
