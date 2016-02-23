@@ -50,17 +50,12 @@ public:
     bool binarySearch(vector<int> & range, int left, int right, int target) {
     	while(left <= right) {
     		int mid = (left + (right - left) / 2);
-            // cout << "LEFT: " << left << " RIGHT: " << right << " MID: " << mid << "\n";
-            // cout << "range[mid] = " << range[mid] << "\n";
-    		if(range[mid] == target) {
+    		if(range[mid] == target)
     			return true;
-    		}
-    		else if(range[mid] < target) {
+    		else if(range[mid] < target)
     			left = mid + 1;
-    		}
-    		else {
+    		else
     			right = mid - 1;
-    		}
             // sleep(1);
     	}
     	return false;
