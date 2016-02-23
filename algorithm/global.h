@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <vector>
 #include <algorithm>
 #include <map>
@@ -20,6 +21,7 @@
 #include <cmath>
 #include <climits>
 #include <unistd.h>
+#include <ctype.h>
 
 using namespace std;
 
