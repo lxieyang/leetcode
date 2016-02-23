@@ -38,13 +38,14 @@ public:
     					// check if valid. if valid, take it to the next level
     					if(checkValid(board, i, j) && solveSudoku(board))
     						return true;
+    					// invalid fill! roll back action and try the next number
     					board[i][j] = '.';
     				}
     				return false;
     			}
     		}
     	}
-    	return true;
+    	return true;	// all points are filled and there's no problem
     }
 };
 
