@@ -53,6 +53,7 @@ public:
         						}
         						visited[next.row][next.col] = true;
         					} else {
+        						// on the boarder
         						isRegion = false;
         					}
         				}
