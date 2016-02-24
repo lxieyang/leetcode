@@ -58,12 +58,31 @@ public:
     }
 };
 
+class Solution2 {
+public:
+    bool isSymmetric(TreeNode* root) {
+    	if(!root)
+    		return true;
+        stack<TreeNode *> nodes;
+        nodes.push(root->left);
+        nodes.push(root->right);
+        while(!nodes.empty()) {
+        	TreeNode * p = nodes.top(); nodes.pop();
+        	TreeNode * q = nodes.top(); nodes.pop();
+        	if(!p && !q)
+        		continue;
+        	if(!p || !q)
+        		return false;
+        	if(p->val != q->val)
+        		return false;
 
-
-
-
-
-
-
+        	nodes.push(p->left);
+        	nodes.push(q->right);
+        	nodes.push(p->right);
+        	nodes.push(q->left);
+        }
+        return true;
+    }
+};
 
 
