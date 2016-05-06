@@ -14,6 +14,12 @@ class Solution2(object):
         return ''.join(reversed(s))
 
 
+# version 3
+class Solution3(object):
+    def reverseString(self, s):
+        return s[::-1]
+
+
 
 concern = 'angela'
 
@@ -23,3 +29,7 @@ print sol.reverseString(concern)
 
 sol2 = Solution2()
 print sol2.reverseString(concern)
+
+
+sol3 = Solution3()
+print sol3.reverseString(concern)
