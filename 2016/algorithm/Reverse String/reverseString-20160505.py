@@ -1,3 +1,4 @@
+# version 1, time limit exceeded
 class Solution(object):
     def reverseString(self, s):
         ret = ""
@@ -6,6 +7,19 @@ class Solution(object):
             ret += s[idx]
         return ret
 
-sol = Solution()
+
+# version 2
+class Solution2(object):
+    def reverseString(self, s):
+        return ''.join(reversed(s))
+
+
+
 concern = 'angela'
+
+sol = Solution()
 print sol.reverseString(concern)
+
+
+sol2 = Solution2()
+print sol2.reverseString(concern)
