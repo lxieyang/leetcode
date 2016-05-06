@@ -4,6 +4,8 @@
 
 using namespace std;
 
+
+// Solution 1
 class Solution {
 public: 
     string reverseString(string s) {
@@ -22,9 +24,28 @@ public:
     }
 };
 
+
+// Solution 2
+class Solution2 {
+public: 
+    string reverseString(string s) {
+       string ret = "";
+       for(int i = s.size() - 1; i >= 0; i--) {
+           ret += s[i];
+       }
+
+       return ret;
+    }
+};
+
+
+
+
 int main() {
     Solution sol;
+    Solution2 sol2;
     string concern = "angela";
     cout << sol.reverseString(concern) << "\n";
+    cout << sol2.reverseString(concern) << "\n";
     return 0;
 }
