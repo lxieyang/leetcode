@@ -17,19 +17,46 @@
 #include <vector>
 #include <map>
 #include <algorithm>
+#include <unordered_map>
 
 using namespace std;
 
-
+// Version 1
 class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        /*
+         * Thoughts:
+         *      Using map on the fly
+        */
+
+        vector<int> ret;
+        unordered_map<int, int> intMap;
+        for(unsigned i = 0; i < nums.size(); ++i) {
+            if(!intMap.count(nums[i]))  {   // didn't find!
+                intMap[target - nums[i]] = i;
+            }
+            else {
+                ret.push_back(intMap[nums[i]]);
+                ret.push_back(i);
+                break;
+            }
+        }
+        
+        return ret;
+    }    
+};
+
+
+// Version 2 [This solution do not work with the "indices" version of the problem]
+class Solution2 {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         /*
          * Thoughts:
          *      The input vector better be sorted, or it's hard to iterate.
          *      Therefore, first sort the input vector [O(NlogN)]
-         *      Then iterate through the whole vector from both sides.
-         *   ==>Remember to cache their init positions before sorting   
+         *      Then iterate through the whole vector from both sides.  
          */
         
         // return vector:
@@ -38,13 +65,7 @@ public:
         // init condition: 
         if(nums.empty())
             return ret;
-        
-        // cache init positions:
-        map<int, int> posMap; // map<int, init pos>
-        for(unsigned i = 0; i < nums.size(); i++) {
-            posMap[nums[i]] = i;
-        }
-        
+       
         // init vector:
         cout << "Init:\n";
         for (auto x : nums) cout << x << " ";   cout << "\n";
@@ -61,8 +82,8 @@ public:
 
         while(start < end) {
             if(nums[start] + nums[end] == target) {
-                ret.push_back(posMap[nums[start]]);
-                ret.push_back(posMap[nums[end]]);
+                ret.push_back(nums[start]);
+                ret.push_back(nums[end]);
                 break;
             }
             else if(nums[start] + nums[end] < target) {
