@@ -1,5 +1,6 @@
 class Solution(object):
     def twoSum(self, nums, target):
+
         """
         :type nums: List[int]
         :type target: int
@@ -16,6 +17,7 @@ class Solution(object):
                 ret.append(i)
                 break
         return ret
+
 
 sol = Solution()
 angela = [0, 3, 4, 0]
