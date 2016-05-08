@@ -28,7 +28,8 @@ public:
          * Thoughts:
          *      The input vector better be sorted, or it's hard to iterate.
          *      Therefore, first sort the input vector [O(NlogN)]
-         *      Then iterate through the whole vector from both sides
+         *      Then iterate through the whole vector from both sides.
+         *   ==>Remember to cache their init positions before sorting   
          */
         
         // return vector:
@@ -38,10 +39,21 @@ public:
         if(nums.empty())
             return ret;
         
+        // cache init positions:
+        map<int, int> posMap; // map<int, init pos>
+        for(unsigned i = 0; i < nums.size(); i++) {
+            posMap[nums[i]] = i;
+        }
+        
+        // init vector:
+        cout << "Init:\n";
+        for (auto x : nums) cout << x << " ";   cout << "\n";
+
         // sort the input vector
         sort(nums.begin(), nums.end());
         
         // examine the sorted vector:
+        cout << "Sorted:\n";
         for (auto x : nums) cout << x << " ";   cout << "\n";
 
         // iterate from start to finish
@@ -49,8 +61,8 @@ public:
 
         while(start < end) {
             if(nums[start] + nums[end] == target) {
-                ret.push_back(start);
-                ret.push_back(end);
+                ret.push_back(posMap[nums[start]]);
+                ret.push_back(posMap[nums[end]]);
                 break;
             }
             else if(nums[start] + nums[end] < target) {
