@@ -15,10 +15,13 @@ Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer 
 #include <unordered_map>
 #include <string>
 #include <algorithm>
-
+#include <unordered_set>
+#include <math.h>
 
 using namespace std;
 
+
+// Version 1: 
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
@@ -47,9 +50,42 @@ public:
 
 
 
+// Version 2: Sliding Window
+class Solution2 {
+public:
+    int lengthOfLongestSubstring(string s) {
+       // Thoughts:
+       //       Using a sliding window to check for each i, if s[i, j) has dup chars
+       //       We use HashSet to store the characters in current window [i, j) (j = i initially)
+       //       Then we slide the index j to the right. If it is not in the HashSet, we slide j further.
+       //       Doing so until s[j] is already in the HashSet. 
+       //       At this point, we found the maximum size of substrings without duplicate 
+       //       characters start with index i.
+       //       If we do this for all i, we get out answer.
+        
+        unordered_set<char> window;
+        unsigned i = 0, j = 0;
+        unsigned globalMax = 0;
+        while(i < s.size() && j < s.size()) {
+            if(!window.count(s[j])){
+                window.insert(s[j++]);
+                globalMax = max(globalMax, j - i);
+            }
+            else {
+                window.erase(s[i++]);
+            }
+        }
+        return globalMax;
+    }
+};
+
+
+
+
+
 int main() {
     string anglea = "abcdefgabcdefghabcdefghi";
-    Solution sol;
+    Solution2 sol;
     cout << "String: \n" << anglea << "\n";
     cout << "Length of longest no dup substring: " << sol.lengthOfLongestSubstring(anglea) << "\n";
 
