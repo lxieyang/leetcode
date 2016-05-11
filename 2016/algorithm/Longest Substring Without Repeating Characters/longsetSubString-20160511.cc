@@ -81,11 +81,36 @@ public:
 
 
 
+// Version 3: Sliding Window with optimization
+class Solution3 {
+public:
+    int lengthOfLongestSubstring(string s) {
+        // Thoughts:
+        //      Use map instead of set to cache the last known location of each char
+        
+        unsigned globalMax = 0;
+        unsigned i = 0, j = 0;
+
+        unordered_map<char, unsigned> posMap;   // map<char, last known pos>
+        for(; j < s.size(); ++j) {
+            if(posMap.count(s[j])) {
+                i = max(i, posMap[s[j]] + 1);
+                // jump directly to the next location
+            }
+            globalMax = max(globalMax, j - i + 1);
+            posMap[s[j]] = j;
+        }
+
+        return globalMax;
+    }
+};
+
+
 
 
 int main() {
     string anglea = "abcdefgabcdefghabcdefghi";
-    Solution2 sol;
+    Solution3 sol;
     cout << "String: \n" << anglea << "\n";
     cout << "Length of longest no dup substring: " << sol.lengthOfLongestSubstring(anglea) << "\n";
 
