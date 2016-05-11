@@ -30,16 +30,19 @@ struct ListNode {
 };
 
 
+// Version 1: have 3 conditions to check (worst case) in the while loop
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         // Thoughts:
         //      maintain carry bit
+        //      use a dummy head
         
+
         int carry = 0;
         int a, b;
-        ListNode head(-1);
-        ListNode * temp = &head;
+        ListNode dummyHead(-1);
+        ListNode * temp = &dummyHead;
         while(l1 || l2 || carry != 0) {
             a = (l1) ? getValAndIncrementPointer(l1) : 0;
             b = (l2) ? getValAndIncrementPointer(l2) : 0;
@@ -51,7 +54,7 @@ public:
             temp = temp->next;
         }
 
-        return head.next;
+        return dummyHead.next;
     }
 
 private:
@@ -62,6 +65,48 @@ private:
         return val;
     }
 };
+
+
+// Version 2: check at most 2 conditions in the while loop
+class Solution2 {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        // Thoughts:
+        //      maintain carry bit
+        //      use a dummy head
+        
+
+        int carry = 0;
+        int a, b;
+        ListNode dummyHead(-1);
+        ListNode * temp = &dummyHead;
+        while(l1 || l2) {
+            a = (l1) ? getValAndIncrementPointer(l1) : 0;
+            b = (l2) ? getValAndIncrementPointer(l2) : 0;
+            int realSum = a + b + carry;
+            carry = (realSum) / 10;
+            int val = (realSum) % 10;
+
+            temp->next = new ListNode(val);
+            temp = temp->next;
+        }
+        if(carry) {
+            temp->next = new ListNode(carry);
+        }
+
+        return dummyHead.next;
+    }
+
+private:
+    int getValAndIncrementPointer(ListNode * &node) {
+        int val = node->val;
+        // cout << "val is: " << val << "\n";
+        node = node->next;
+        return val;
+    }
+};
+
+
 
 
 void printList(ListNode * head) {
@@ -103,7 +148,7 @@ int main() {
     printList(&a);
     printList(&d);
 
-    Solution sol;
+    Solution2 sol;
     ListNode * ret = sol.addTwoNumbers(&a, &h);
     printList(ret);
 
