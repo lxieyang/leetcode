@@ -23,14 +23,14 @@ public:
         int start = 0, end = 0;
         for(int i = 0; i < (int)s.size(); ++i) {
 
-            cout << "Current pass: " << i << "\n";
+            // cout << "Current pass: " << i << "\n";
             
-            cout << "Current center: " << s[i] << "\t";
+            // cout << "Current center: " << s[i] << "\t";
             int single = expandAroundCenter(s, i, i);
-            cout << "length: " << single << "\n";
-            cout << "Current center: " << s[i] << " and " << s[i + 1] << "\t";
+            // cout << "length: " << single << "\n";
+            // cout << "Current center: " << s[i] << " and " << s[i + 1] << "\t";
             int doub = expandAroundCenter(s, i, i + 1);
-            cout << "length: " << doub << "\n";
+            // cout << "length: " << doub << "\n";
 
             int len = max(single, doub);
             if(len > end - start) {
