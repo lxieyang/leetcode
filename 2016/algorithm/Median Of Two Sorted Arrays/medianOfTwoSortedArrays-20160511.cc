@@ -76,7 +76,7 @@ public:
         const int m = nums1.size();
         const int n = nums2.size();
         int total = m + n;
-        if(total >> 2 == 1) {
+        if(total & 0x1) {
             return find_kth(nums1.begin(), m, nums2.begin(), n, total / 2 + 1);
         }
         else {
