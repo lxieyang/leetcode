@@ -9,12 +9,14 @@ There are two sorted arrays nums1 and nums2 of size m and n respectively. Find t
 
 using namespace std;
 
+
+// Version 1: O(m + n) [Time limit exceeded]
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
         // Thoughts:
         //      combine the two ==> [O(m + n)]
-        //      get the median
+        //      then, get the median
         unsigned size = nums1.size() + nums2.size(); 
         vector<int> total;
         total.reserve(size);
