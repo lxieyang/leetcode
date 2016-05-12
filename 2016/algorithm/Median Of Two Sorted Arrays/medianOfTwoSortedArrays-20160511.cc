@@ -91,7 +91,7 @@ public:
                  int k) {
         // assume that m <= n
         if(m > n)
-            find_kth(B, n, A, m, k);
+            return find_kth(B, n, A, m, k);
         if(m == 0)
             return *(B + k - 1);
         if(k == 1)
@@ -117,8 +117,8 @@ public:
 
 
 int main() {
-    vector<int> michael = {1, 3, 5, 7};
-    vector<int> angela = {2, 4, 6, 8};
+    vector<int> michael = {1};
+    vector<int> angela;
     Solution2 sol;
     double ret = sol.findMedianSortedArrays(michael, angela);
     cout << "median: " << ret << "\n";
