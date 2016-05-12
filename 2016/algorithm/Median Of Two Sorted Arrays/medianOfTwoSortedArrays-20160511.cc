@@ -67,10 +67,24 @@ public:
 };
 
 
+// Version 2:
+class Solution2 {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        // Thoughts:
+        //      
+        
+    }
+};
+
+
+
+
+
 int main() {
     vector<int> michael = {1, 3, 5, 7};
     vector<int> angela = {2, 4, 6, 8};
-    Solution sol;
+    Solution2 sol;
     double ret = sol.findMedianSortedArrays(michael, angela);
     cout << "median: " << ret << "\n";
 }
