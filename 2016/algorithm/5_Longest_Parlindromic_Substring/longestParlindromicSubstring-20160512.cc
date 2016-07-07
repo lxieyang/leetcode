@@ -55,10 +55,10 @@ public:
 
 
 int main() {
-    string angela = "abbaismyfaviriatebanddnab";
+    string concern = "abbaismyfaviriatebanddnab";
     // string michael = "abba";
     Solution sol;
-    string ret = sol.longestPalindrome(angela);
+    string ret = sol.longestPalindrome(concern);
     cout << "longestPalindrome: " << ret << "\n";
 
 }

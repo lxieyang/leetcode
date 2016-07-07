@@ -34,7 +34,7 @@ class Solution(object):
 
 sol = Solution()
 michael = [1, 2, 3, 4, 5]
-angela = [6, 7, 8, 9, 10]
-print "median: ", sol.findMedianSortedArrays(michael, angela)
+concern = [6, 7, 8, 9, 10]
+print "median: ", sol.findMedianSortedArrays(michael, concern)
 
 

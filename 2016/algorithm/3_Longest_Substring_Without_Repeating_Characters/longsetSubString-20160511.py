@@ -17,7 +17,7 @@ class Solution(object):
         return globalMax
 
 
-anglea = "abcabcbbabcd"
+concern = "abcabcbbabcd"
 sol = Solution()
-print 'Length: ', sol.lengthOfLongestSubstring(anglea), "\n"
+print 'Length: ', sol.lengthOfLongestSubstring(concern), "\n"
 

@@ -32,7 +32,7 @@ class Solution(object):
 
 
 sol = Solution()
-angela = "abbaismysecondfavoritebandnab"
+concern = "abbaismysecondfavoritebandnab"
 
-print "longest parlindronic substr: ", sol.longestPalindrome(angela)
+print "longest parlindronic substr: ", sol.longestPalindrome(concern)
 

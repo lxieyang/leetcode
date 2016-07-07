@@ -109,10 +109,10 @@ public:
 
 
 int main() {
-    string anglea = "abcdefgabcdefghabcdefghi";
+    string concern = "abcdefgabcdefghabcdefghi";
     Solution3 sol;
-    cout << "String: \n" << anglea << "\n";
-    cout << "Length of longest no dup substring: " << sol.lengthOfLongestSubstring(anglea) << "\n";
+    cout << "String: \n" << concern << "\n";
+    cout << "Length of longest no dup substring: " << sol.lengthOfLongestSubstring(concern) << "\n";
 
     return 0;
 }
