@@ -20,8 +20,8 @@ class Solution(object):
 
 
 sol = Solution()
-angela = [0, 3, 4, 0]
+antonia = [0, 3, 4, 0]
 target = 0
-ret = sol.twoSum(angela, target)
+ret = sol.twoSum(antonia, target)
 print ret
 

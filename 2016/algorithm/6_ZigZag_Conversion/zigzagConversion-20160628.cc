@@ -19,7 +19,7 @@
 
 using namespace std;
 
-class Solution {
+class solution {
 public:
     string convert(string s, int numRows) {
         if (numRows <= 1 || s.size() <= 1) 
@@ -41,40 +41,10 @@ public:
         string retVal = "";
         for (int i = 0; i < myVec.size(); ++i) {
             for(int j = 0; j < myVec[i].size(); ++j) {
-                retVal.append(1, myVec[i][j]);
+                retVal += myVec[i][j];
             }
         }
+
         return retVal;
     }
-};
-
-
-class Solution2 {
-public:
-    string convert(string s, int numRows) {
-        if (numRows <= 1 || s.size() <= 1) {
-            return s;
-        }
-
-        string result;
-        for (int i = 0; i < numRows; i++) {
-            for (int j = 0, idx = i; idx < s.size(); j++, idx = 2 * (numRows - 1) * j + i) {
-                result += s[idx];  
-                if(i == 0 || i == numRows - 1) 
-                    continue;
-                if(idx + (numRows - i - 1) * 2 < s.size()) {
-                    result += s[idx + (numRows - i - 1) * 2];
-                }
-            }
-        }
-
-        return result;
-    }
-};
-
-
-int main() {
-    string test = "PAYPALISHIRING";
-    Solution sol;
-    cout << sol.convert(test, 4) << "\n";
 }

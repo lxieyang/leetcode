@@ -118,9 +118,9 @@ public:
 
 int main() {
     vector<int> michael = {1};
-    vector<int> angela;
+    vector<int> antonia;
     Solution2 sol;
-    double ret = sol.findMedianSortedArrays(michael, angela);
+    double ret = sol.findMedianSortedArrays(michael, antonia);
     cout << "median: " << ret << "\n";
 }
 

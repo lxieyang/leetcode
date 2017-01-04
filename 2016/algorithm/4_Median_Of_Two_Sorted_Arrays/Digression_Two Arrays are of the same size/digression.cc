@@ -119,15 +119,15 @@ public:
 
 
 int main() {
-    vector<int> michael, angela;
-    michael.reserve(5); angela.reserve(5);
+    vector<int> michael, antonia;
+    michael.reserve(5); antonia.reserve(5);
     for(unsigned i = 0; i < 5; ++i) {
         michael.push_back(i + 1);
-        angela.push_back(i + 6);
+        antonia.push_back(i + 6);
     }
 
     Solution sol;
-    cout << "median: " << sol.findMedian(michael, angela) << "\n";
+    cout << "median: " << sol.findMedian(michael, antonia) << "\n";
 
 
     cout << "\n\nSecond solution:\n";

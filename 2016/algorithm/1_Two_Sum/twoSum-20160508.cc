@@ -42,9 +42,9 @@ public:
                 break;
             }
         }
-        
+
         return ret;
-    }    
+    }
 };
 
 
@@ -56,23 +56,23 @@ public:
          * Thoughts:
          *      The input vector better be sorted, or it's hard to iterate.
          *      Therefore, first sort the input vector [O(NlogN)]
-         *      Then iterate through the whole vector from both sides.  
+         *      Then iterate through the whole vector from both sides.
          */
-        
+
         // return vector:
         vector<int> ret;
 
-        // init condition: 
+        // init condition:
         if(nums.empty())
             return ret;
-       
+
         // init vector:
         cout << "Init:\n";
         for (auto x : nums) cout << x << " ";   cout << "\n";
 
         // sort the input vector
         sort(nums.begin(), nums.end());
-        
+
         // examine the sorted vector:
         cout << "Sorted:\n";
         for (auto x : nums) cout << x << " ";   cout << "\n";
@@ -93,8 +93,8 @@ public:
                 end--;
             }
         }
-        
-        // return 
+
+        // return
         return ret;
     }
 };
@@ -103,12 +103,12 @@ public:
 
 
 int main() {
-    
-    vector<int> angela = {2, 7, 15, 11};
+
+    vector<int> antonia = {2, 7, 15, 11};
     int michael = 9;
-    
+
     Solution sol;
-    vector<int> ret = sol.twoSum(angela, michael);
+    vector<int> ret = sol.twoSum(antonia, michael);
     if(ret.empty()) {
         cout << "No matches!\n";
     }
